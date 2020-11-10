@@ -1,5 +1,7 @@
 import Values from 'values.js';
 import './App.css';
+import SingleColor from './components/SingleColor';
+
 import React, {useState} from 'react';
 function App() {
   const [color, setColor] = useState('#aaa')
@@ -35,7 +37,9 @@ function App() {
           </div>
         </form>
       </header>
-      <section className='colors'>
+      <section className='colors d-flex flex-wrap'>
+              <SingleColor gColor='red'></SingleColor>
+
 
       </section>
     </div>

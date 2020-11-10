@@ -28,6 +28,12 @@
   border-color: red;
 }
 
+.singleColor {
+  height: 150px;
+  width: 150px;
+  background-color: #61dafb;
+}
+
 .App-link {
   color: #61dafb;
 }
