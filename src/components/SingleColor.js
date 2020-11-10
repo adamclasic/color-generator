@@ -14,14 +14,14 @@ const [msg, setMsg] = useState(false)
     navigator.clipboard.writeText(`rgb(${rgbValue})`)
     setTimeout(() => {
       setMsg(false)
-    }, 3000)
+    }, 2000)
     
   }
   return (
     <div onClick={clickHandler} className='singleColor' style={{backgroundColor: `rgb(${rgbValue})`}}>
       <p style={type==="tint" ? {color: 'black'} : {color: 'white'}}>{`%${weight}`}</p>
       <p style={type==="tint" ? {color: 'black'} : {color: 'white'}}>{`rgb(${rgbValue})`}</p>
-      {msg ? <p>copied to clipboard</p> : <p></p>}
+      {msg ? <p style={type==="tint" ? {color: 'black'} : {color: 'white'}}>copied to clipboard</p> : <p></p>}
       
     </div>
   )
