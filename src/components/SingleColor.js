@@ -1,13 +1,16 @@
 import React from 'react'
+// import rgbToHex from 'values'
 
-const SingleColor = (gColor) => {
+const SingleColor = ({rgb, weight, type}) => {
+  console.log(rgb);
   // var gColor = this.props.gColor
-  console.log('----below thi is gColor');
-  console.log(gColor);
-  console.log('----ontop thi is gColor');
+  let rgbValue = rgb.join(',');
+  // console.log('----below thi is gColor');
+  // console.log('----ontop thi is gColor');
   return (
-    <div className='singleColor' style={{backgroundColor: `rgb(${gColor.gColor[0]},${gColor.gColor[0]},${gColor.gColor[0]})`}}>
-      x
+    <div className='singleColor' style={{backgroundColor: `rgb(${rgbValue})`}}>
+      <p style={type=="tint" ? {color: 'black'} : {color: 'white'}}>{`%${weight}`}</p>
+      <p style={type=="tint" ? {color: 'black'} : {color: 'white'}}>{`rgb(${rgbValue})`}</p>
     </div>
   )
 }

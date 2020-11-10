@@ -3,22 +3,24 @@ import './App.css';
 import SingleColor from './components/SingleColor';
 
 import React, {useState} from 'react';
+// let colorsDefault = new Values(color).all(10)
 function App() {
   const [color, setColor] = useState('#aaa')
   const [error, setError] = useState(false)
   const [colorList, setColorList] = useState([])
-  // let colors = new Values(color).all(10)
+  const [isDefault, setIsDefault] = useState(true)
   const submitHandler = (e) => {
     
     try {
       setError(false)
+      setIsDefault(false)
       let colors = new Values(color).all(10)
-
+      setColorList(colors)
       e.preventDefault()
-      console.log(colors);
+      console.log(colorList);
       
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setError(true)
     }
   }
@@ -39,7 +41,13 @@ function App() {
         </form>
       </header>
       <section className='colors d-flex flex-wrap'>
-        <SingleColor gColor={colors[10].rgb}></SingleColor>
+      {colorList.map(
+        (color) => {
+        return <SingleColor {...color}></SingleColor>
+
+      }
+      )}
+        {/* <SingleColor gColor={isDefault ? [0,0,0] : color.rgb}></SingleColor> */}
 
 
       </section>
